@@ -1,0 +1,189 @@
+@import "../utils/variables.scss";
+@import "../utils/colors.scss";
+@import "../utils/box-shadow.css";
+@import "../utils/animations.scss";
+@keyframes iconanim{
+    0%{
+      transform: rotate(-270deg);  
+    }
+    100%{
+      transform: rotate(0);
+    }
+}
+@keyframes fadeIn{
+    0%{opacity:0.5;}
+    100%{opacity:1}
+}
+header{
+    display: inline;
+  
+    i{
+    transform: translateY(90%);
+    position:absolute;
+    height:30px;
+    width:50px;
+    font-size:25px;
+    margin-left: 20px;
+   
+    }
+   
+}
+#image-resto img{
+    
+    display: block;
+    width:100%;
+    height: 40vh;
+    object-fit:cover;
+    margin-bottom: -20px;
+}
+
+
+.nom-resto{
+    display: flex;
+    padding: 10px 35px 10px 20px;
+    align-items: center;
+    background:$light-grey;
+    border-radius:45px 45px 0 0 ;
+    margin-top:-45px;
+    width:100%;
+    position: relative;
+    & h2{
+        font-family: "shrikhand",'sans-serif';
+        font-size: 30px;
+        position: relative; 
+        width:100%;
+        i {
+            
+            position: absolute;
+            right:30px;
+            top:50%;
+            
+         }
+        }
+        font-size: 30px;
+        
+            &:hover .far::before{
+                content: "\f004";
+                font-weight: bold;
+                background: -webkit-linear-gradient(rgba(147, 86, 220, 1),rgba(255, 121, 218, 1));
+               -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;          
+               animation:fadeIn 1s;
+                cursor: pointer;
+            } 
+    
+    }
+  .resto_lapalette{
+    padding:0 15px;
+    background:$light-grey;
+    .commander{
+         text-align: center;
+        padding-top:40px;
+        padding-bottom: 50px;
+    button{
+        width: 50%;
+        
+        background: linear-gradient(to top,rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+          padding: 17px 25px;
+          color: white;
+          border: none;
+          font-size: 16px;
+          font-weight: 500;
+          border-radius: 25px;
+          // box-shadow: 2px 1px 8px -3px #000000;
+        //  @include base-shadow;
+          transition: transform 0.5s;
+        }
+        & button:hover {
+            transform: scale(1.03);
+            opacity: 0.85;
+            box-shadow: 10px 10px 16px -3px #000000;
+            cursor: pointer;
+        }
+
+    }
+      
+  }
+
+.menu_la_palette{ 
+    
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:15px;
+    h3{
+        margin:8px;
+    }
+     @media (max-width: 1000px){
+        grid-template-columns: 1fr;
+    }    
+        .entrees,.plats ,.desserts{
+
+             overflow: hidden;
+             
+            .entrees_details{
+               display: flex;
+               border-radius: 15px; 
+                overflow: hidden;
+               background-color: white;
+                box-shadow: 2px 2px 8px 1px #f9f9f9;
+                margin: 5px;
+                margin-bottom:25px;
+                animation: apparence 1s;
+                .prix{
+                    margin-left: auto;
+                    font-weight: 700;
+                    display: flex;
+                    align-items: flex-end;
+                    padding: 15px;
+                }
+                .description_entrees{
+                    padding: 15px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    
+                    h4, span{
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+                .cheked{
+                    display: grid;
+                    place-items: center;
+                    background-color: $tertiary-color;
+                    border-radius: 0 15px 15px 0;
+                    margin-right:-60px;
+                    width:60px;
+                    transition: margin-right 0.2s;
+                   
+                    i{
+                      display: grid;
+                      place-items: center;
+                      background-color: white;
+                      width:20px;
+                      height:20px;
+                      border-radius: 20px;
+                      color:$tertiary-color;
+                      
+                    }
+                }
+                &:hover{
+                    cursor: pointer;
+                 .cheked{
+                    margin-right: 0;
+                    
+                    }
+                  i{
+                    
+                    animation: iconanim 0.5s ease-in-out;
+                    }
+               }
+            }
+        }
+       
+
+ 
+}
+ 
+
